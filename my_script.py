@@ -9,7 +9,7 @@ f.close()
 
 print("old text",text)
 
-text += " counting "
+text += "\n counting \n"
 
 print("new text",text)
 
