@@ -8,7 +8,7 @@ rule master:
 
 rule prepare_initial:
     output:
-        filename="2020.txt"
+        filename="{}.txt".format(config["years"][0])
     script: "prepare_initial.py"
 
 
