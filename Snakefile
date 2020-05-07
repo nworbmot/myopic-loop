@@ -4,7 +4,7 @@ configfile: "config.yaml"
 
 rule master:
     input:
-        "2050.txt"
+        "{}.txt".format(config["years"][-1])
 
 rule process:
     input:
