@@ -6,10 +6,13 @@ rule master:
     input:
         "{}.txt".format(config["years"][-1])
 
-#https://stackoverflow.com/questions/46947411/recursion-looping-of-rules-in-snakemake
+# functions are automatically passed the wildcards
+def process_input(wildcards):
+    return "{}.txt".format(config["previous_year"][wildcards.year])
+
 rule process:
     input:
-        filename=lambda wildcards: "{}.txt".format(config["previous_year"][wildcards.year])
+        filename=process_input
     output:
         filename="{year}.txt"
     script: "my_script.py"
